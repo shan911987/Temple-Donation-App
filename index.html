@@ -1,0 +1,187 @@
+<body>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandir Prabandhan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<!-- 🔐 LOGIN PAGE -->
+<div id="loginPage" class="page">
+
+    <div class="card">
+        <img src="temple.png" class="logo">
+
+        <h1>🛕 मंदिर दान प्रबंधन</h1>
+
+        <input id="email" placeholder="Email डालें">
+        <input id="password" type="password" placeholder="Password डालें">
+
+        <button onclick="login()">🔐 Login</button>
+        <button onclick="register()">🆕 Register</button>
+    </div>
+
+</div>
+</div><!-- 🏠 DASHBOARD -->
+<div id="dashboardPage" class="page hidden">
+
+    <div class="top-bar">
+        <h2>🏠 Dashboard</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="menu">
+
+        <button onclick="openSection('donorSection')">🧍 भक्त प्रबंधन</button>
+        <button onclick="openSection('donationSection')">💰 दान एंट्री</button>
+        <button onclick="openSection('expenseSection')">📦 खर्च एंट्री</button>
+        <button onclick="openSection('reportSection')">📊 रिपोर्ट</button>
+        <button onclick="openSection('passwordSection')">🔑 पासवर्ड बदलें</button>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- 🧍 भक्त प्रबंधन -->
+<div id="donorSection" class="page hidden">
+    <h2>🧍 भक्त जोड़ें</h2>
+
+    <input id="donorName" placeholder="भक्त का नाम">
+    <button onclick="addDonor()">+ जोड़ें</button>
+
+    <input id="searchDonor" onkeyup="searchDonorList()" placeholder="भक्त खोजें">
+
+    <h3>भक्त सूची</h3>
+    <table id="donorTable">
+        <tr><th>नाम</th><th>Action</th></tr>
+    </table>
+
+    <button class="back" onclick="goHome()">⬅ वापस</button>
+</div>
+
+
+
+
+<!-- 💰 DANA SECTION -->
+<div id="donationSection" class="page hidden">
+
+    <h2>💰 दान एंट्री</h2>
+
+    <select id="donorSelect"></select>
+
+    <select id="donationMonth">
+        <option>जनवरी</option><option>फरवरी</option><option>मार्च</option>
+        <option>अप्रैल</option><option>मई</option><option>जून</option>
+        <option>जुलाई</option><option>अगस्त</option><option>सितम्बर</option>
+        <option>अक्टूबर</option><option>नवम्बर</option><option>दिसम्बर</option>
+    </select>
+
+    <input id="donationAmount" type="number" placeholder="दान राशि">
+
+    <button onclick="addDonation()">+ जोड़ें</button>
+
+    <h3>सभी दान</h3>
+
+    <table id="donationTable">
+        <tr><th>नाम</th><th>महीना</th><th>राशि</th><th>Action</th></tr>
+    </table>
+
+    <button class="back" onclick="goHome()">⬅ वापस</button>
+
+</div>
+
+
+
+
+<!-- 📦 EXPENSE SECTION -->
+<div id="expenseSection" class="page hidden">
+
+    <h2>📦 खर्च एंट्री</h2>
+
+    <input id="expDetail" placeholder="खर्च विवरण">
+    <input id="expAmount" type="number" placeholder="खर्च राशि">
+
+    <select id="expMonth">
+        <option>जनवरी</option><option>फरवरी</option><option>मार्च</option>
+        <option>अप्रैल</option><option>मई</option><option>जून</option>
+        <option>जुलाई</option><option>अगस्त</option><option>सितम्बर</option>
+        <option>अक्टूबर</option><option>नवम्बर</option><option>दिसम्बर</option>
+    </select>
+
+    <button onclick="addExpense()">+ जोड़ें</button>
+
+    <h3>सभी खर्चे</h3>
+    <table id="expenseTable">
+        <tr><th>विवरण</th><th>महीना</th><th>राशि</th><th>Action</th></tr>
+    </table>
+
+    <button class="back" onclick="goHome()">⬅ वापस</button>
+
+</div>
+
+
+
+
+<!-- 📊 REPORT SECTION -->
+<div id="reportSection" class="page hidden">
+    <h2>📊 रिपोर्ट</h2>
+<select id="reportMonth">
+    <option disabled selected>महीना चुनें</option>
+    <option>जनवरी</option>
+    <option>फरवरी</option>
+    <option>मार्च</option>
+    <option>अप्रैल</option>
+    <option>मई</option>
+    <option>जून</option>
+    <option>जुलाई</option>
+    <option>अगस्त</option>
+    <option>सितम्बर</option>
+    <option>अक्टूबर</option>
+    <option>नवम्बर</option>
+    <option>दिसम्बर</option>
+</select>
+
+<button onclick="monthlyReport()">📅 महीने का हिसाब देखें</button>
+
+<div id="monthResult" class="month-box">
+    <!-- Month Output Here -->
+</div>
+    <h3>कुल दान: <span id="totalDonation">0</span> ₹</h3>
+    <h3>कुल खर्च: <span id="totalExpense">0</span> ₹</h3>
+    <h3>शेष राशि: <span id="finalBalance">0</span> ₹</h3>
+
+    <button onclick="calculateReport()">🔄 रिपोर्ट अपडेट करें</button>
+
+    <button class="back" onclick="goHome()">⬅ वापस</button>
+</div>
+
+
+
+
+<!-- 🔑 CHANGE PASSWORD -->
+<div id="passwordSection" class="page hidden">
+    <h2>🔑 पासवर्ड बदलें</h2>
+
+    <input id="oldPass" type="password" placeholder="पुराना पासवर्ड">
+    <input id="newPass" type="password" placeholder="नया पासवर्ड">
+
+    <button onclick="changePassword()">सेव करें</button>
+
+    <button class="back" onclick="goHome()">⬅ वापस</button>
+
+</div>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* GENERAL DESIGN */
+body {
+    margin: 0;
+    padding: 0;
+    background: #7ED0EC; /* Sky Blue */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Every Page Container */
+.page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+/* LOGIN CARD */
+.card {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 8%;
+    background: orange;
+    padding: 25px;
+    border-radius: 20px;
+    border: 5px solid black;
+    box-shadow: 0px 0px 10px black;
+    text-align: center;
+}
+
+.card input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+/* Temple Logo */
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 12px;
+    background: #FF8C00;
+    border: 4px solid black;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+button:hover {
+    background: #e07a00;
+}
+
+/* DASHBOARD MENU */
+.menu button {
+    margin-bottom: 10px;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    width: auto;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    border: 3px solid black;
+    font-size: 16px;
+}
+
+/* TABLE DESIGN */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    background: #fff;
+    border: 3px solid black;
+}
+
+table th, table td {
+    border: 2px solid black;
+    padding: 8px;
+    font-size: 18px;
+}
+
+/* BACK BUTTON */
+.back {
+    background: gray;
+    color: white;
+    margin-top: 20px;
+}
+
+/* SECTION HEADINGS */
+h2 {
+    text-align: center;
+    padding: 10px;
+    background: orange;
+    border: 4px solid black;
+    border-radius: 10px;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid black;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Responsive 9:16 look */
+@media screen and (max-width: 480px) {
+    .card {
+        margin-top: 20%;
+    }
+}
+
+/* Zoom Enabled */
+html {
+    touch-action: manipulation;
+}
+.month-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: orange;
+    border: 4px solid black;
+    border-radius: 10px;
+    font-size: 18px;
+}
